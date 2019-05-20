@@ -2,20 +2,18 @@ import struct
 
 
 def tamper(student_id):
-  student_id=[2,0,1,8,1,1,1,2,3,0,2,8]
+  pass
+
+
+def detect():
   with open('lenna.bmp','r+b') as f:
-    f.read(54)
-    f.write(b'\x00\x00\x00')
-    for i in student_id:
-      if i==0:
-        n=10
-      if i!=0:
-        n=i 
-      f.read(54+n*3+3)
-      f.write(b'\x00\x00\x00')
-      
-                          
-      
+    f.seek(54)
+
+    f.write(b'\x12\x30\x28')
+
+
+if __name__ == '__main__':
+   detect()
 
 
 def detect():
